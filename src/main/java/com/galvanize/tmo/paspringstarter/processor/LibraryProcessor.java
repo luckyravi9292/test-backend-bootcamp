@@ -17,9 +17,8 @@ public class LibraryProcessor {
     }
 
     public ArrayList<Book> getAllBooks() {
-        ArrayList<Book> listOfAllBooks = new ArrayList<>();
         listOfBooks.sort(Comparator.comparing(Book::getTitle));
-        return listOfAllBooks;
+        return listOfBooks;
     }
 
     public void deleteAllBooks() {
