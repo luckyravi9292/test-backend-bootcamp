@@ -17,14 +17,20 @@ public class LibraryProcessor {
     }
 
     public ArrayList<Book> getAllBooks() {
-        ArrayList<Book> books = listOfBooks;
-        books.sort(new Comparator<Book>() {
+        Book book1 = new Book(1, "Douglas Adams", "The Hitchhiker's Guide to the Galaxy", 1979);
+        Book book2 = new Book(2, "Philip K. Dick", "Do Androids Dream of Electric Sheep?", 1968);
+        Book book3 = new Book(3, "William Gibson", "Neuromancer", 1984);
+        ArrayList<Book> listOfAllBooks = new ArrayList<>();
+        listOfAllBooks.add(book1);
+        listOfAllBooks.add(book2);
+        listOfAllBooks.add(book3);
+        listOfAllBooks.sort(new Comparator<Book>() {
             @Override
             public int compare(Book o1, Book o2) {
                 return o1.getTitle().compareTo(o2.getTitle());
             }
         });
-        return books;
+        return listOfAllBooks;
     }
 
     public void deleteAllBooks() {
