@@ -18,7 +18,7 @@ public class LibraryController {
     @GetMapping("/health")
     public void health() {}
 
-    @PostMapping("/api/book")
+    @PostMapping("/api/books")
     public String addBook(@RequestBody Book book) {
         return libraryProcessor.addBookToLibrary(book);
     }
