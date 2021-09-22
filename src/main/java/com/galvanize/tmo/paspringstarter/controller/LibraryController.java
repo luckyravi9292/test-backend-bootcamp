@@ -1,6 +1,7 @@
 package com.galvanize.tmo.paspringstarter.controller;
 
 import com.galvanize.tmo.paspringstarter.model.Book;
+import com.galvanize.tmo.paspringstarter.model.BookResponse;
 import com.galvanize.tmo.paspringstarter.processor.LibraryProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,8 +26,8 @@ public class LibraryController {
     }
 
     @GetMapping("/api/books")
-    public ResponseEntity<ArrayList<Book>> getBooks() {
-        ArrayList<Book> allBooks =  libraryProcessor.getAllBooks();
+    public ResponseEntity<BookResponse> getBooks() {
+        BookResponse allBooks =  libraryProcessor.getAllBooks();
         return new ResponseEntity<>(allBooks, HttpStatus.OK);
     }
 

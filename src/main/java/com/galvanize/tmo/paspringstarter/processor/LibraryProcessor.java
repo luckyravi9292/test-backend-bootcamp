@@ -1,6 +1,7 @@
 package com.galvanize.tmo.paspringstarter.processor;
 
 import com.galvanize.tmo.paspringstarter.model.Book;
+import com.galvanize.tmo.paspringstarter.model.BookResponse;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -16,9 +17,11 @@ public class LibraryProcessor {
         return book;
     }
 
-    public ArrayList<Book> getAllBooks() {
+    public BookResponse getAllBooks() {
+        BookResponse bookResponse = new BookResponse();
         listOfBooks.sort(Comparator.comparing(Book::getTitle));
-        return listOfBooks;
+        bookResponse.setBooks(listOfBooks);
+        return bookResponse;
     }
 
     public void deleteAllBooks() {
