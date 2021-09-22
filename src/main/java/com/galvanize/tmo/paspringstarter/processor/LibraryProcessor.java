@@ -10,10 +10,10 @@ public class LibraryProcessor {
 
     static ArrayList<Book> listOfBooks = new ArrayList<>();
 
-    public String addBookToLibrary(Book book) {
+    public Book addBookToLibrary(Book book) {
         book.setId(listOfBooks.size() + 1);
         listOfBooks.add(book);
-        return book.toString();
+        return book;
     }
 
     public ArrayList<Book> getAllBooks() {

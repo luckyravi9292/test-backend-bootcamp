@@ -19,13 +19,15 @@ public class LibraryController {
     public void health() {}
 
     @PostMapping("/api/books")
-    public String addBook(@RequestBody Book book) {
-        return libraryProcessor.addBookToLibrary(book);
+    public ResponseEntity<Book> addBook(@RequestBody Book book) {
+        Book newBook = libraryProcessor.addBookToLibrary(book);
+        return new ResponseEntity<>(newBook, HttpStatus.CREATED);
     }
 
     @GetMapping("/api/books")
-    public ArrayList<Book> getBooks() {
-        return libraryProcessor.getAllBooks();
+    public ResponseEntity<ArrayList<Book>> getBooks() {
+        ArrayList<Book> allBooks =  libraryProcessor.getAllBooks();
+        return new ResponseEntity<>(allBooks, HttpStatus.OK);
     }
 
     @DeleteMapping("/api/books")
